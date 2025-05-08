@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="bookStoreApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Coffee Website</title>
+
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+</head>
+<body ng-controller="MainCtrl">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <div class="logo">
+                <img src="images/logo.png" alt="logo">
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#!/">Home</a></li>
+                <li><a href="#!/book">Books</a></li>
+                <li><a href="#!/story">Story</a></li>
+                <li><a href="#!/content">Contact</a></li>
+            </ul>
+        </div>
+        <div class="navbar-right">
+            <div class="shopping-cart"><i class="ri-shopping-bag-line"></i></div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button type="submit"><i class="ri-search-line"></i></button>
+            </div>
+            <div class="menu-icon" id="menu-icon"><i class="ri-menu-line"></i></div>
+        </div>
+    </nav>
+
+    <!-- View loader -->
+    <div ng-view></div>
+
+ <!-- Footer -->
+<footer class="footer" id="contact-section">
+    <div class="footer-content">
+        <div class="footer-col">
+            <h2>Book Haven</h2>
+            <p>Your go-to place for books that inspire, entertain, and inform. Dive into stories that matter.</p>
+            <p class="copyright">Copyright © 2025 Book Haven. All rights reserved.</p>
+        </div>
+        <div class="footer-col">
+            <h3>Contact Us</h3>
+            <p>Amrita mysuru campus</p>
+            <p>Email: <a href="Bookmaven@maven.com" class="link">Bookmaven@maven.com</a></p>
+        </div>
+        <div class="footer-col">
+            <h3>Subscribe to Newsletter</h3>
+            <form class="subscribe-form">
+                <input type="email" placeholder="Enter your email" required>
+                <a href="#" class="btn subscribe-btn">Subscribe</a>
+            </form>
+            <p>Get updates on new arrivals, flash sales, and more—straight to your inbox.</p>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        const app = angular.module("bookStoreApp", ["ngRoute"]);
+
+        app.config(function($routeProvider) {
+            $routeProvider
+            .when("/", {
+                templateUrl: "home.html",
+                controller: function() {
+                    setTimeout(initSlider, 100); // small delay to let DOM render
+                }
+            })
+            .when("/book", {
+                templateUrl: "books.html"
+            })
+            .when("/story", {
+               templateUrl:"story.html"
+            })
+            .when("/content", {
+                templateUrl: "content.html"
+            })
+            .otherwise({
+                redirectTo: "/"
+            });
+        });
+
+        app.controller("MainCtrl", function($scope) {});
+    </script>
+</body>
+</html>

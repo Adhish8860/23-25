@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+</head>
+<body>
+
+
+
+        <!-- Form Section -->
+        <div class="contact-section">
+            <div class="contact-form">
+                <h2>Contact Us</h2>
+                <form id="contactForm" onsubmit="return validateForm()">
+                    <input type="text" id="name" placeholder="Name" required>
+                    <span class="error-message" id="nameError">Please enter your name.</span>
+
+                    <input type="email" id="email" placeholder="Email" required>
+                    <span class="error-message" id="emailError">Please enter a valid email.</span>
+
+                    <input type="text" id="phone" placeholder="Phone Number" required pattern="\d{10,15}">
+                    <span class="error-message" id="phoneError">Please enter a valid phone number.</span>
+
+                    <textarea id="message" rows="4" placeholder="Message" required></textarea>
+                    <span class="error-message" id="messageError">Please enter a message.</span>
+
+                    <input type="submit" value="Send">
+                </form>
+            </div>
+
+            <div class="contact-image">
+                <img src="images/content.jpg">
+            </div>
+        </div>
+
+</body>
+</html>
